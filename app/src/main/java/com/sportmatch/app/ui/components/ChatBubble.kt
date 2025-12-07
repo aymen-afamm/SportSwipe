@@ -31,9 +31,6 @@ import com.sportmatch.app.ui.theme.SportMatchTheme
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
 
 /**
  * ChatBubble Component - Message bubble for chat screens.
@@ -143,15 +140,6 @@ fun ChatBubblePreview() {
                 text = "Sure! What time works for you?",
                 isSent = true,
                 timestamp = System.currentTimeMillis()
-            )
-        }
-    }
-}
-                color = if (isSent) {
-                    TextOnPrimary.copy(alpha = 0.7f)
-                } else {
-                    MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.6f)
-                }
             )
         }
     }
