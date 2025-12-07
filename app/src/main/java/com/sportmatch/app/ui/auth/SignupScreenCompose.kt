@@ -41,6 +41,10 @@ import com.sportmatch.app.ui.theme.Primary
 import com.sportmatch.app.ui.theme.Secondary
 import com.sportmatch.app.ui.theme.SportMatchTheme
 import com.sportmatch.app.ui.viewmodel.AuthViewModel
+import com.sportmatch.app.ui.viewmodel.AuthUiState
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 /**
  * SignupScreen - User registration screen.
@@ -228,7 +232,12 @@ fun SignupScreen(
                         nameError = name.length < 2
 
                         if (!emailError && !passwordError && !nameError) {
-                            viewModel.signupWithEmail(email, password, name, dateOfBirth)
+                            try {
+                                val dob = java.text.SimpleDateFormat("MM/dd/yyyy", java.util.Locale.getDefault()).parse(dateOfBirth) ?: java.util.Date()
+                                viewModel.signUp(email, password, name, dob)
+                            } catch (e: Exception) {
+                                // Invalid date format
+                            }
                         }
                     },
                     enabled = email.isNotEmpty() && password.isNotEmpty() && name.isNotEmpty()

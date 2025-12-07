@@ -30,7 +30,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
@@ -42,6 +41,7 @@ import com.sportmatch.app.ui.theme.Primary
 import com.sportmatch.app.ui.theme.Tertiary
 import com.sportmatch.app.ui.theme.SportMatchTheme
 import com.sportmatch.app.ui.viewmodel.AuthViewModel
+import com.sportmatch.app.ui.viewmodel.AuthUiState
 
 /**
  * LoginScreen - Email/password authentication screen.
@@ -192,7 +192,7 @@ fun LoginScreen(
                         passwordError = password.length < 6
                         
                         if (!emailError && !passwordError) {
-                            viewModel.loginWithEmail(email, password)
+                            viewModel.signIn(email, password)
                         }
                     },
                     enabled = email.isNotEmpty() && password.isNotEmpty()
@@ -235,13 +235,6 @@ fun LoginScreen(
     }
 }
 
-// Placeholder for AuthUiState - define in ViewModel
-sealed class AuthUiState {
-    object Idle : AuthUiState()
-    object Loading : AuthUiState()
-    object Success : AuthUiState()
-    data class Error(val message: String) : AuthUiState()
-}
 
 @Preview(showBackground = true)
 @Composable
