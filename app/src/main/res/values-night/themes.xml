@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.SportMatch" parent="Theme.Material3.Dark.NoActionBar">
-        <!-- Material 3 uses Material3 theme, Compose handles colors via MaterialTheme() -->
-        <!-- Keep only essential attributes -->
+    <style name="Theme.SportMatch" parent="Theme.AppCompat">
+        <!-- Base dark theme for Compose - colors are handled by MaterialTheme() -->
         <item name="android:statusBarColor">@color/background</item>
         <item name="android:navigationBarColor">@color/background</item>
     </style>
