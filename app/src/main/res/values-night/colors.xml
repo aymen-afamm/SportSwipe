@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- SportMatch Dark Mode Color Palette -->
+    <color name="primary">#6B9EFF</color>
+    <color name="primary_dark">#3D7BFF</color>
+    <color name="primary_light">#8FB5FF</color>
+    
+    <color name="secondary">#4DD9C4</color>
+    <color name="secondary_dark">#13CBAA</color>
+    <color name="secondary_light">#6FE3D0</color>
+    
+    <color name="accent">#9B7AFF</color>
+    <color name="accent_dark">#7A4DFF</color>
+    <color name="accent_light">#B89AFF</color>
+    
+    <color name="background">#121212</color>
+    <color name="background_dark">#000000</color>
+    
+    <color name="sport_card_background">#1E1E1E</color>
+    <color name="sport_card_background_dark">#2C2C2C</color>
+    
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_primary_dark">#E0E0E0</color>
+    
+    <color name="text_secondary">#B0B0B0</color>
+    <color name="text_secondary_dark">#808080</color>
+    
+    <color name="surface">#1E1E1E</color>
+    <color name="surface_dark">#2C2C2C</color>
+    
+    <color name="error">#FF6B6B</color>
+    <color name="success">#66BB6A</color>
+    <color name="warning">#FFA726</color>
+    
+    <color name="divider">#424242</color>
+    <color name="divider_dark">#616161</color>
+</resources>

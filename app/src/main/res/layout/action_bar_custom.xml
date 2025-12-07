@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="16dp"
+    android:background="?attr/colorPrimary"
+    android:gravity="center_vertical">
+
+    <ImageButton
+        android:id="@+id/action_back"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_arrow_back"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/app_name"
+        android:tint="?attr/colorOnPrimary" />
+
+    <TextView
+        android:id="@+id/action_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="?attr/colorOnPrimary"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp" />
+
+    <ImageButton
+        android:id="@+id/action_menu"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_settings"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/settings"
+        android:tint="?attr/colorOnPrimary" />
+
+</LinearLayout>
+

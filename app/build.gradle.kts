@@ -63,42 +63,31 @@ dependencies {
     implementation("androidx.compose.material3:material3")
     implementation("androidx.navigation:navigation-compose:2.7.5")
     
-    // Hilt
+
     implementation("com.google.dagger:hilt-android:2.48")
-    implementation(libs.firebase.firestore.ktx)
+    implementation(libs.androidx.contentpager)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.appcompat)
     kapt("com.google.dagger:hilt-android-compiler:2.48")
     implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
-    
-    // Firebase
+
     implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.firebase:firebase-firestore-ktx")
     implementation("com.google.firebase:firebase-storage-ktx")
+
     implementation("com.google.firebase:firebase-messaging-ktx")
-    
-    // Room
     implementation("androidx.room:room-runtime:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")
     kapt("androidx.room:room-compiler:2.6.1")
-    
-    // Coil
+
     implementation("io.coil-kt:coil-compose:2.5.0")
-    
-    // Lottie
     implementation("com.airbnb.android:lottie-compose:6.1.0")
-    
-    // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
-    
-    // ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
-    
-    // Location
     implementation("com.google.android.gms:play-services-location:21.0.1")
-    
-    // Google Sign In
     implementation("com.google.android.gms:play-services-auth:20.7.0")
-    
+    implementation("androidx.cardview:cardview:1.0.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")

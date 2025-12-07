@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sports">
+        <item>Running</item>
+        <item>Football</item>
+        <item>Basketball</item>
+        <item>Gym</item>
+        <item>Padel</item>
+        <item>Cycling</item>
+        <item>Tennis</item>
+        <item>Swimming</item>
+        <item>Yoga</item>
+        <item>Volleyball</item>
+    </string-array>
+    
+    <string-array name="experience_levels">
+        <item>Beginner</item>
+        <item>Intermediate</item>
+        <item>Pro</item>
+    </string-array>
+    
+    <string-array name="genders">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
+    </string-array>
+    
+    <string-array name="gender_preferences">
+        <item>All</item>
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
+    </string-array>
+</resources>
+

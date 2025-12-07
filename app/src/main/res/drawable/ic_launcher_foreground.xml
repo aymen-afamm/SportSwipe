@@ -1,30 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:aapt="http://schemas.android.com/aapt"
     android:width="108dp"
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <path android:pathData="M31,63.928c0,0 6.4,-11 12.1,-13.1c7.2,-2.6 26,-1.4 26,-1.4l38.1,38.1L107,108.928l-32,-1L31,63.928z">
-        <aapt:attr name="android:fillColor">
-            <gradient
-                android:endX="85.84757"
-                android:endY="92.4963"
-                android:startX="42.9492"
-                android:startY="49.59793"
-                android:type="linear">
-                <item
-                    android:color="#44000000"
-                    android:offset="0.0" />
-                <item
-                    android:color="#00000000"
-                    android:offset="1.0" />
-            </gradient>
-        </aapt:attr>
-    </path>
+    
+    <!-- Sport Icon - Abstract representation of two people connecting -->
+    <!-- Person 1 (Left) -->
+    <group
+        android:translateX="30"
+        android:translateY="40">
+        <!-- Head -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M12,0C5.4,0 0,5.4 0,12C0,18.6 5.4,24 12,24C18.6,24 24,18.6 24,12C24,5.4 18.6,0 12,0Z" />
+        <!-- Body -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M6,24L6,48L18,48L18,24Z" />
+        <!-- Arms (sport pose) -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M0,30L6,30L6,36L0,36Z" />
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M18,30L24,30L24,36L18,36Z" />
+        <!-- Legs -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M6,48L6,60L12,60L12,48Z" />
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M12,48L12,60L18,60L18,48Z" />
+    </group>
+    
+    <!-- Connection/Heart symbol in center -->
     <path
         android:fillColor="#FFFFFF"
-        android:fillType="nonZero"
-        android:pathData="M65.3,45.828l3.8,-6.6c0.2,-0.4 0.1,-0.9 -0.3,-1.1c-0.4,-0.2 -0.9,-0.1 -1.1,0.3l-3.9,6.7c-6.3,-2.8 -13.4,-2.8 -19.7,0l-3.9,-6.7c-0.2,-0.4 -0.7,-0.5 -1.1,-0.3C38.8,38.328 38.7,38.828 38.9,39.228l3.8,6.6C36.2,49.428 31.7,56.028 31,63.928h46C76.3,56.028 71.8,49.428 65.3,45.828zM43.4,57.328c-0.8,0 -1.5,-0.5 -1.8,-1.2c-0.3,-0.7 -0.1,-1.5 0.4,-2.1c0.5,-0.5 1.4,-0.7 2.1,-0.4c0.7,0.3 1.2,1 1.2,1.8C45.3,56.528 44.5,57.328 43.4,57.328L43.4,57.328zM64.6,57.328c-0.8,0 -1.5,-0.5 -1.8,-1.2s-0.1,-1.5 0.4,-2.1c0.5,-0.5 1.4,-0.7 2.1,-0.4c0.7,0.3 1.2,1 1.2,1.8C66.5,56.528 65.6,57.328 64.6,57.328L64.6,57.328z"
-        android:strokeWidth="1"
-        android:strokeColor="#00000000" />
+        android:pathData="M54,38C52.2,36.2 49.8,35 47,35C42.6,35 39,38.6 39,43C39,45.8 40.2,48.2 42,50L54,62L66,50C67.8,48.2 69,45.8 69,43C69,38.6 65.4,35 61,35C58.2,35 55.8,36.2 54,38Z" />
+    
+    <!-- Person 2 (Right) -->
+    <group
+        android:translateX="66"
+        android:translateY="40">
+        <!-- Head -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M12,0C5.4,0 0,5.4 0,12C0,18.6 5.4,24 12,24C18.6,24 24,18.6 24,12C24,5.4 18.6,0 12,0Z" />
+        <!-- Body -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M6,24L6,48L18,48L18,24Z" />
+        <!-- Arms (sport pose) -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M0,30L6,30L6,36L0,36Z" />
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M18,30L24,30L24,36L18,36Z" />
+        <!-- Legs -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M6,48L6,60L12,60L12,48Z" />
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M12,48L12,60L18,60L18,48Z" />
+    </group>
+    
+    <!-- Sport ball at bottom -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.9"
+        android:pathData="M44,72C44,68.7 46.7,66 50,66C53.3,66 56,68.7 56,72C56,75.3 53.3,78 50,78C46.7,78 44,75.3 44,72Z" />
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2"
+        android:strokeLinecap="round"
+        android:pathData="M50,66L50,78M44,72L56,72" />
 </vector>
