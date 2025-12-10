@@ -74,13 +74,15 @@ fun ChatBubble(
                         bottomEnd = if (isSent) 4.dp else Dimens.chat_bubble_corner_radius
                     )
                 )
-                .background(
+                .then(
                     if (isSent) {
-                        Brush.horizontalGradient(
-                            colors = listOf(Primary, PrimaryDark)
+                        Modifier.background(
+                            brush = Brush.horizontalGradient(
+                                colors = listOf(Primary, PrimaryDark)
+                            )
                         )
                     } else {
-                        MaterialTheme.colorScheme.surfaceVariant
+                        Modifier.background(MaterialTheme.colorScheme.surfaceVariant)
                     }
                 )
                 .padding(horizontal = Dimens.medium, vertical = Dimens.small)

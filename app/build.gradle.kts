@@ -38,6 +38,10 @@ android {
     }
     kotlinOptions {
         jvmTarget = "17"
+        // Fix for KAPT module accessibility issue with Java 9+
+        freeCompilerArgs += listOf(
+            "-Xjvm-default=all"
+        )
     }
     buildFeatures {
         compose = true
@@ -68,6 +72,7 @@ dependencies {
     implementation(libs.androidx.contentpager)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.datastore.core.android)
     kapt("com.google.dagger:hilt-android-compiler:2.48")
     implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
 

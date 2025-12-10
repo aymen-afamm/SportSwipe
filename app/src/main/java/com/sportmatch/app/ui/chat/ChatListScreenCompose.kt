@@ -6,12 +6,9 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
@@ -25,12 +22,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.hilt.navigation.compose.hiltViewModel
 import com.sportmatch.app.ui.components.ProfileImage
 import com.sportmatch.app.ui.theme.Dimens
 import com.sportmatch.app.ui.theme.CornerCard
 import com.sportmatch.app.ui.theme.SportMatchTheme
-import com.sportmatch.app.ui.viewmodel.ChatViewModel
 
 data class MatchItem(
     val matchId: String,
@@ -45,13 +40,11 @@ data class MatchItem(
  *
  * @param onNavigateToChat Callback with match ID when chat is selected
  * @param onBackClick Callback for back button
- * @param viewModel ChatViewModel for managing matches list
  */
 @Composable
 fun ChatListScreen(
     onNavigateToChat: (String) -> Unit,
-    onBackClick: () -> Unit,
-    viewModel: ChatViewModel = hiltViewModel()
+    onBackClick: () -> Unit
 ) {
     // Mock data
     val matches = listOf(
@@ -133,7 +126,7 @@ fun ChatListScreen(
             LazyColumn(
                 modifier = Modifier.fillMaxSize(),
                 verticalArrangement = Arrangement.spacedBy(Dimens.small),
-                contentPadding = Dimens.medium
+                contentPadding = androidx.compose.foundation.layout.PaddingValues(all = Dimens.medium)
             ) {
                 items(matches) { match ->
                     MatchListItem(

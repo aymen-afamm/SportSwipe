@@ -15,7 +15,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.ChevronRight
+import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -38,14 +38,6 @@ import com.sportmatch.app.ui.theme.CornerCard
 import com.sportmatch.app.ui.theme.SportMatchTheme
 import com.sportmatch.app.ui.viewmodel.SettingsViewModel
 
-/**
- * SettingsScreen - App settings and account management.
- * Provides options for notifications, appearance, and account actions.
- *
- * @param onBackClick Callback for back button
- * @param onLogoutSuccess Callback when logout completes successfully
- * @param viewModel SettingsViewModel for managing settings
- */
 @Composable
 fun SettingsScreen(
     onBackClick: () -> Unit,
@@ -85,7 +77,6 @@ fun SettingsScreen(
 
         Spacer(modifier = Modifier.height(Dimens.large))
 
-        // Appearance Section
         SettingsSectionHeader("Appearance")
 
         SettingsToggleItem(
@@ -97,7 +88,6 @@ fun SettingsScreen(
 
         Spacer(modifier = Modifier.height(Dimens.large))
 
-        // Notifications Section
         SettingsSectionHeader("Notifications")
 
         SettingsToggleItem(
@@ -109,44 +99,41 @@ fun SettingsScreen(
 
         Spacer(modifier = Modifier.height(Dimens.large))
 
-        // Account Section
         SettingsSectionHeader("Account")
 
         SettingsActionItem(
             title = "Change Password",
-            onClick = { /* TODO: Navigate to change password */ }
+            onClick = { /* TODO */ }
         )
 
         SettingsActionItem(
             title = "Privacy Policy",
-            onClick = { /* TODO: Open privacy policy */ }
+            onClick = { /* TODO */ }
         )
 
         SettingsActionItem(
             title = "Terms of Service",
-            onClick = { /* TODO: Open terms */ }
+            onClick = { /* TODO */ }
         )
 
         Spacer(modifier = Modifier.height(Dimens.extra_large))
 
-        // Danger Zone
         SettingsSectionHeader("Danger Zone")
 
         SettingsActionItem(
             title = "Report User",
             titleColor = Error,
-            onClick = { /* TODO: Open report dialog */ }
+            onClick = { /* TODO */ }
         )
 
         SettingsActionItem(
             title = "Delete Account",
             titleColor = Error,
-            onClick = { /* TODO: Show confirmation dialog */ }
+            onClick = { /* TODO */ }
         )
 
         Spacer(modifier = Modifier.height(Dimens.extra_large))
 
-        // Logout Button
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -190,10 +177,7 @@ private fun SettingsToggleItem(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .background(
-                color = MaterialTheme.colorScheme.surface,
-                shape = CornerCard
-            )
+            .background(color = MaterialTheme.colorScheme.surface, shape = CornerCard)
             .clickable { onToggle(!enabled) }
             .padding(Dimens.medium)
             .padding(horizontal = Dimens.large),
@@ -216,7 +200,6 @@ private fun SettingsToggleItem(
             )
         }
 
-        // Simple toggle indicator
         Box(
             modifier = Modifier
                 .background(
@@ -229,7 +212,8 @@ private fun SettingsToggleItem(
                 text = if (enabled) "ON" else "OFF",
                 style = MaterialTheme.typography.labelSmall,
                 fontWeight = FontWeight.Bold,
-                color = if (enabled) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onSurfaceVariant
+                color = if (enabled) MaterialTheme.colorScheme.onPrimary
+                else MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
     }
@@ -245,10 +229,7 @@ private fun SettingsActionItem(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .background(
-                color = MaterialTheme.colorScheme.surface,
-                shape = CornerCard
-            )
+            .background(color = MaterialTheme.colorScheme.surface, shape = CornerCard)
             .clickable(onClick = onClick)
             .padding(Dimens.medium)
             .padding(horizontal = Dimens.large),
@@ -262,7 +243,7 @@ private fun SettingsActionItem(
             color = titleColor
         )
         Icon(
-            imageVector = Icons.Filled.ChevronRight,
+            imageVector = Icons.Filled.ArrowForward,
             contentDescription = null,
             tint = MaterialTheme.colorScheme.onSurfaceVariant
         )
@@ -274,9 +255,8 @@ private fun SettingsActionItem(
 fun SettingsScreenPreview() {
     SportMatchTheme {
         SettingsScreen(
-            onBackClick = { },
-            onLogoutSuccess = { }
+            onBackClick = {},
+            onLogoutSuccess = {}
         )
     }
 }
-

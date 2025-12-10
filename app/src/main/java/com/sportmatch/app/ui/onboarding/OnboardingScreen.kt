@@ -1,6 +1,6 @@
 package com.sportmatch.app.ui.onboarding
 
-import androidx.compose.animation.core.*
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.pager.HorizontalPager
@@ -26,6 +26,7 @@ import kotlinx.coroutines.launch
  * Premium Onboarding Screen
  * 3 screens with big illustration area, small text, dot indicators
  */
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun OnboardingScreen(
     onNavigateToLogin: () -> Unit
@@ -37,17 +38,17 @@ fun OnboardingScreen(
         OnboardingPage(
             title = "Find Sports Partners",
             description = "Connect with people who share your passion for sports and fitness",
-            gradientColors = listOf(GradientStart, GradientMiddle)
+            gradientColors = listOf(GradientBlue, GradientPurple)
         ),
         OnboardingPage(
             title = "Swipe & Match",
             description = "Swipe right to like, left to pass, or up for super like",
-            gradientColors = listOf(GradientMiddle, SportAccent)
+            gradientColors = listOf(GradientPurple, GradientTeal)
         ),
         OnboardingPage(
             title = "Chat & Connect",
             description = "Start conversations with your matches and plan your next workout together",
-            gradientColors = listOf(SportAccent, GradientEnd)
+            gradientColors = listOf(GradientTeal, GradientBlue)
         )
     )
 
@@ -153,7 +154,7 @@ private fun OnboardingPageContent(
                 modifier = Modifier
                     .size(280.dp)
                     .background(
-                        color = TextOnPrimary.copy(alpha = 0.15f),
+                        color = TextPrimaryDark.copy(alpha = 0.15f),
                         shape = MaterialTheme.shapes.extraLarge
                     )
             )
@@ -165,7 +166,7 @@ private fun OnboardingPageContent(
                 text = page.title,
                 style = MaterialTheme.typography.headlineLarge,
                 fontWeight = FontWeight.Bold,
-                color = TextOnPrimary,
+                color = TextPrimaryDark,
                 textAlign = TextAlign.Center
             )
 
@@ -175,7 +176,7 @@ private fun OnboardingPageContent(
             Text(
                 text = page.description,
                 style = MaterialTheme.typography.bodyLarge,
-                color = TextOnPrimary.copy(alpha = 0.9f),
+                color = TextPrimaryDark.copy(alpha = 0.9f),
                 textAlign = TextAlign.Center,
                 modifier = Modifier.padding(horizontal = Spacing.lg)
             )

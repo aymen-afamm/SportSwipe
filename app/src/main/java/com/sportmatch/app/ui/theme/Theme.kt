@@ -9,7 +9,7 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
-import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
@@ -48,7 +48,12 @@ private val LightColorScheme = ColorScheme(
 
     outline = DividerLight,
     outlineVariant = Color(0xFFCAC4D0),
-    scrim = Scrim
+    scrim = Scrim,
+
+    inversePrimary = PrimaryLight,
+    surfaceTint = Primary,
+    inverseSurface = Color(0xFF1E1E1E),
+    inverseOnSurface = Color(0xFFFFFFFF)
 )
 
 /**
@@ -85,7 +90,12 @@ private val DarkColorScheme = ColorScheme(
 
     outline = DividerDark,
     outlineVariant = Color(0xFF49454E),
-    scrim = Scrim
+    scrim = Scrim,
+
+    inversePrimary = PrimaryDark,
+    surfaceTint = PrimaryLight,
+    inverseSurface = Color(0xFFF7F9FC),
+    inverseOnSurface = Color(0xFF1A1A1A)
 )
 
 /**
@@ -115,8 +125,7 @@ fun SportMatchTheme(
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = colorScheme.primary.toArgb()
-            WindowCompat.getInsetsController(window, view)?.isAppearanceLightStatusBars = !darkTheme
+            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = !darkTheme
         }
     }
 

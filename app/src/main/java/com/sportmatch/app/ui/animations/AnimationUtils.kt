@@ -70,11 +70,11 @@ fun SlideUpDownAnimation(
         visible = visible,
         enter = slideInVertically(
             initialOffsetY = { it },
-            animationSpec = AnimationSpecs.MediumAnimation
+            animationSpec = tween(600)
         ),
         exit = slideOutVertically(
             targetOffsetY = { it },
-            animationSpec = AnimationSpecs.MediumAnimation
+            animationSpec = tween(600)
         ),
         modifier = modifier
     ) {
@@ -119,12 +119,12 @@ suspend fun animateSwipeCard(
  */
 @Composable
 fun animateBounceScale(targetScale: Float): Float {
-    val scale by animateFloatAsState(
+    val scale = animateFloatAsState(
         targetValue = targetScale,
         animationSpec = AnimationSpecs.SpringDamping,
         label = "bounce_scale"
     )
-    return scale
+    return scale.value
 }
 
 /**
@@ -133,12 +133,12 @@ fun animateBounceScale(targetScale: Float): Float {
  */
 @Composable
 fun animatePulse(enabled: Boolean = true): Float {
-    val alpha by animateFloatAsState(
+    val alpha = animateFloatAsState(
         targetValue = if (enabled) 1f else 0.3f,
         animationSpec = tween(1000),
         label = "pulse_alpha"
     )
-    return alpha
+    return alpha.value
 }
 
 // Lottie Animation Helper

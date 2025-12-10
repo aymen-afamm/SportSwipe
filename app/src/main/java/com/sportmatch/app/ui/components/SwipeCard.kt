@@ -4,7 +4,6 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
@@ -32,9 +31,7 @@ import com.sportmatch.app.ui.theme.*
 fun SwipeCard(
     user: UserModel,
     modifier: Modifier = Modifier,
-    scale: Float = 1f,
-    rotation: Float = 0f,
-    alpha: Float = 1f
+    scale: Float = 1f
 ) {
     val animatedScale by animateFloatAsState(
         targetValue = scale,
@@ -47,8 +44,8 @@ fun SwipeCard(
             .fillMaxWidth()
             .height(640.dp)
             .scale(animatedScale)
-            .clip(SwipeCardShape),
-        shape = SwipeCardShape,
+            .clip(CornerLarge),
+        shape = CornerLarge,
         elevation = CardDefaults.cardElevation(
             defaultElevation = Elevation.lg,
             pressedElevation = Elevation.md
@@ -62,7 +59,7 @@ fun SwipeCard(
                     contentDescription = user.name,
                     modifier = Modifier
                         .fillMaxSize()
-                        .clip(SwipeCardShape),
+                        .clip(CornerLarge),
                     contentScale = ContentScale.Crop
                 )
             } else {
@@ -134,26 +131,7 @@ fun SwipeCard(
                 }
             }
 
-            // Distance Badge (top right)
-            if (user.distance != null) {
-                Box(
-                    modifier = Modifier
-                        .align(Alignment.TopEnd)
-                        .padding(Spacing.md)
-                        .background(
-                            color = Color.Black.copy(alpha = 0.6f),
-                            shape = RoundedCornerShape(20.dp)
-                        )
-                        .padding(horizontal = Spacing.md, vertical = Spacing.sm)
-                ) {
-                    Text(
-                        text = "${user.distance}km away",
-                        style = MaterialTheme.typography.labelMedium,
-                        color = Color.White,
-                        fontWeight = FontWeight.SemiBold
-                    )
-                }
-            }
+            // Distance Badge removed - distance property not available in UserModel
         }
     }
 }

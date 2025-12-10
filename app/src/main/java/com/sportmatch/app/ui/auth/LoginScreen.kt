@@ -4,7 +4,6 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -68,7 +67,10 @@ fun LoginScreen(
                     .size(100.dp)
                     .background(
                         brush = Brush.linearGradient(
-                            colors = listOf(Primary, SportAccent)
+                            colors = listOf(
+                                Primary,
+                                Secondary
+                            )
                         ),
                         shape = MaterialTheme.shapes.extraLarge
                     )
@@ -103,7 +105,7 @@ fun LoginScreen(
                 label = { Text("Email") },
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true,
-                shape = InputShape,
+                shape = CornerMedium,
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = Primary,
                     unfocusedBorderColor = MaterialTheme.colorScheme.outline
@@ -120,7 +122,7 @@ fun LoginScreen(
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true,
                 visualTransformation = PasswordVisualTransformation(),
-                shape = InputShape,
+                shape = CornerMedium,
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = Primary,
                     unfocusedBorderColor = MaterialTheme.colorScheme.outline

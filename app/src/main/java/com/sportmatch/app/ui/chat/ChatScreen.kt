@@ -9,7 +9,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Image
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Send
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -22,13 +22,13 @@ import com.sportmatch.app.ui.components.ChatBubble
 import com.sportmatch.app.ui.components.ImageMessageBubble
 import com.sportmatch.app.ui.viewmodel.ChatViewModel
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ChatScreen(
     matchId: String,
     onNavigateBack: () -> Unit,
     viewModel: ChatViewModel = hiltViewModel()
 ) {
-    val uiState by viewModel.uiState.collectAsState()
     val messages by viewModel.messages.collectAsState()
     val otherUser by viewModel.otherUser.collectAsState()
     var messageText by remember { mutableStateOf("") }
@@ -124,7 +124,7 @@ fun ChatScreen(
             ) {
                 IconButton(onClick = { imagePicker.launch("image/*") }) {
                     Icon(
-                        imageVector = Icons.Default.Image,
+                        imageVector = Icons.Default.Add,
                         contentDescription = "Add Image"
                     )
                 }

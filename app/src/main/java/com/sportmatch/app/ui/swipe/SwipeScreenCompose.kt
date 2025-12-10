@@ -19,8 +19,8 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.ThumbDown
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -36,13 +36,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.IntOffset
-import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import com.sportmatch.app.data.model.UserModel
 import com.sportmatch.app.ui.components.SwipeCard
 import com.sportmatch.app.ui.theme.Dimens
@@ -50,7 +47,6 @@ import com.sportmatch.app.ui.theme.Primary
 import com.sportmatch.app.ui.theme.Secondary
 import com.sportmatch.app.ui.theme.Error
 import com.sportmatch.app.ui.theme.SportMatchTheme
-import com.sportmatch.app.ui.viewmodel.SwipeViewModel
 import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 
@@ -58,19 +54,13 @@ import kotlin.math.roundToInt
  * SwipeScreen - Main discovery/swiping interface.
  * Features Tinder-style card stack with gesture-based interactions (like/pass/super-like).
  *
- * @param onNavigateToMatch Callback when users match
  * @param onNavigateToProfile Callback to navigate to profile
  * @param onNavigateToMatches Callback to navigate to matches list
- * @param onNavigateToSettings Callback to navigate to settings
- * @param viewModel SwipeViewModel for managing swipe state and logic
  */
 @Composable
 fun SwipeScreen(
-    onNavigateToMatch: (String) -> Unit,
     onNavigateToProfile: () -> Unit,
-    onNavigateToMatches: () -> Unit,
-    onNavigateToSettings: () -> Unit,
-    viewModel: SwipeViewModel = hiltViewModel()
+    onNavigateToMatches: () -> Unit
 ) {
     val cardOffset = remember { Animatable(0f) }
     val cardRotation = remember { Animatable(0f) }
@@ -80,9 +70,9 @@ fun SwipeScreen(
 
     // Mock user data - replace with ViewModel state
     val mockUsers = listOf(
-        UserModel(id = "1", name = "Alex", age = 28, photos = emptyList(), bio = "Basketball lover", sports = listOf("Basketball")),
-        UserModel(id = "2", name = "Jordan", age = 26, photos = emptyList(), bio = "Gym enthusiast", sports = listOf("Gym")),
-        UserModel(id = "3", name = "Casey", age = 29, photos = emptyList(), bio = "Runner", sports = listOf("Running"))
+        UserModel(uid = "1", name = "Alex", age = 28, photos = emptyList(), bio = "Basketball lover", interests = listOf("Basketball")),
+        UserModel(uid = "2", name = "Jordan", age = 26, photos = emptyList(), bio = "Gym enthusiast", interests = listOf("Gym")),
+        UserModel(uid = "3", name = "Casey", age = 29, photos = emptyList(), bio = "Runner", interests = listOf("Running"))
     )
 
     if (currentUserIndex >= mockUsers.size) {
@@ -208,7 +198,7 @@ fun SwipeScreen(
                 modifier = Modifier.size(Dimens.icon_size_extra_large)
             ) {
                 Icon(
-                    imageVector = Icons.Filled.ThumbDown,
+                    imageVector = Icons.Filled.Close,
                     contentDescription = "Pass",
                     tint = Error,
                     modifier = Modifier.size(Dimens.icon_size_large)
@@ -265,10 +255,8 @@ fun SwipeScreen(
 fun SwipeScreenPreview() {
     SportMatchTheme {
         SwipeScreen(
-            onNavigateToMatch = { },
             onNavigateToProfile = { },
-            onNavigateToMatches = { },
-            onNavigateToSettings = { }
+            onNavigateToMatches = { }
         )
     }
 }

@@ -6,7 +6,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -77,7 +76,7 @@ fun SignupScreen(
                     .size(100.dp)
                     .background(
                         brush = Brush.linearGradient(
-                            colors = listOf(Primary, PurpleAccent)
+                            colors = listOf(Primary, Tertiary)
                         ),
                         shape = MaterialTheme.shapes.extraLarge
                     )
@@ -112,7 +111,7 @@ fun SignupScreen(
                 label = { Text("Full Name") },
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true,
-                shape = InputShape,
+                shape = CornerMedium,
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = Primary,
                     unfocusedBorderColor = MaterialTheme.colorScheme.outline
@@ -128,7 +127,7 @@ fun SignupScreen(
                 label = { Text("Email") },
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true,
-                shape = InputShape,
+                shape = CornerMedium,
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = Primary,
                     unfocusedBorderColor = MaterialTheme.colorScheme.outline
@@ -145,7 +144,7 @@ fun SignupScreen(
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true,
                 visualTransformation = PasswordVisualTransformation(),
-                shape = InputShape,
+                shape = CornerMedium,
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = Primary,
                     unfocusedBorderColor = MaterialTheme.colorScheme.outline
@@ -209,6 +208,7 @@ fun SignupScreen(
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DatePickerDialog(
     onDateSelected: (Long) -> Unit,
@@ -226,7 +226,7 @@ fun DatePickerDialog(
             .fillMaxWidth()
             .clickable { showDialog = true },
         readOnly = true,
-        shape = InputShape,
+        shape = CornerMedium,
         colors = OutlinedTextFieldDefaults.colors(
             focusedBorderColor = Primary,
             unfocusedBorderColor = MaterialTheme.colorScheme.outline
@@ -236,8 +236,6 @@ fun DatePickerDialog(
     if (showDialog) {
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
-        val month = calendar.get(Calendar.MONTH)
-        val day = calendar.get(Calendar.DAY_OF_MONTH)
 
         val datePickerState = rememberDatePickerState(
             initialSelectedDateMillis = selectedDateState,

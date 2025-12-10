@@ -18,7 +18,6 @@ import com.sportmatch.app.data.model.UserModel
 import com.sportmatch.app.ui.components.SwipeCard
 import kotlin.math.abs
 import kotlin.math.roundToInt
-
 @Composable
 fun SwipeCardStack(
     users: List<UserModel>,
@@ -29,15 +28,15 @@ fun SwipeCardStack(
     var offsetY by remember { mutableStateOf(0f) }
     var isDragging by remember { mutableStateOf(false) }
 
-    if (currentIndex >= users.size) {
-        return
-    }
+    if (currentIndex >= users.size) return
 
     val currentUser = users[currentIndex]
     val nextUser = users.getOrNull(currentIndex + 1)
 
     val rotation = (offsetX / 10f).coerceIn(-30f, 30f)
-    val alpha = animateFloatAsState(
+
+    // animateFloatAsState returns State<Float>, so we access .value when using it
+    val alphaState = animateFloatAsState(
         targetValue = if (isDragging) 0.7f else 1f,
         animationSpec = tween(200)
     )
@@ -60,12 +59,10 @@ fun SwipeCardStack(
         SwipeCard(
             user = currentUser,
             modifier = Modifier
-                .offset {
-                    IntOffset(offsetX.roundToInt(), offsetY.roundToInt())
-                }
+                .offset { IntOffset(offsetX.roundToInt(), offsetY.roundToInt()) }
                 .graphicsLayer {
                     rotationZ = rotation
-                    alpha = alpha.value
+                    alpha = alphaState.value // <--- Hna khas .value
                 }
                 .pointerInput(Unit) {
                     detectDragGestures(
@@ -74,11 +71,8 @@ fun SwipeCardStack(
                             val threshold = size.width * 0.3f
                             when {
                                 abs(offsetX) > threshold -> {
-                                    val swipeType = if (offsetX > 0) {
-                                        SwipeModel.SwipeType.LIKE
-                                    } else {
-                                        SwipeModel.SwipeType.PASS
-                                    }
+                                    val swipeType = if (offsetX > 0) SwipeModel.SwipeType.LIKE
+                                    else SwipeModel.SwipeType.PASS
                                     onSwipe(currentUser, swipeType)
                                     currentIndex++
                                     offsetX = 0f
@@ -96,7 +90,7 @@ fun SwipeCardStack(
                                 }
                             }
                         }
-                    ) { change, dragAmount ->
+                    ) { _, dragAmount ->
                         isDragging = true
                         offsetX += dragAmount.x
                         offsetY += dragAmount.y

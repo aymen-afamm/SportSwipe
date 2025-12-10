@@ -4,7 +4,6 @@ import androidx.compose.animation.core.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -12,7 +11,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
@@ -63,7 +61,7 @@ fun MatchDialog(
                         .scale(scale)
                         .background(
                             brush = Brush.radialGradient(
-                                colors = listOf(SportAccent, SportAccentDark)
+                                colors = listOf(Secondary, SecondaryDark)
                             ),
                             shape = CircleShape
                         ),
@@ -102,7 +100,7 @@ fun MatchDialog(
                     text = "Send Message",
                     onClick = onSendMessage,
                     modifier = Modifier.fillMaxWidth(),
-                    variant = ButtonVariant.Sport
+                    variant = ButtonVariant.Primary
                 )
 
                 Spacer(modifier = Modifier.height(Spacing.md))

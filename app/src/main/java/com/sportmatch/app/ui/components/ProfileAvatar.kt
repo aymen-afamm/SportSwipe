@@ -43,7 +43,7 @@ fun ProfileAvatar(
                     .fillMaxSize()
                     .background(
                         brush = Brush.linearGradient(
-                            colors = listOf(Primary, SportAccent, PurpleAccent)
+                            colors = listOf(Primary, Secondary, Tertiary)
                         ),
                         shape = CircleShape
                     )

@@ -1,15 +1,15 @@
 package com.sportmatch.app.ui.swipe
 
-import androidx.compose.animation.core.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.*
+import androidx.compose.material.icons.filled.Send
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -77,7 +77,7 @@ fun SwipeScreen(
             ) {
                 IconButton(onClick = onNavigateToChatList) {
                     Icon(
-                        imageVector = Icons.Default.Message,
+                        imageVector = Icons.Default.Send,
                         contentDescription = "Chats",
                         tint = MaterialTheme.colorScheme.onBackground
                     )

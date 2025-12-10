@@ -4,7 +4,6 @@ import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.core.tween
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -176,7 +175,7 @@ fun AppNavHost(
                 onNavigateToChat = { matchId ->
                     navController.navigate(NavRoutes.chatRoute(matchId))
                 },
-                onBackClick = {
+                onNavigateBack = {
                     navController.popBackStack()
                 }
             )
@@ -194,7 +193,7 @@ fun AppNavHost(
             val matchId = backStackEntry.arguments?.getString("matchId") ?: ""
             ChatScreen(
                 matchId = matchId,
-                onBackClick = {
+                onNavigateBack = {
                     navController.popBackStack()
                 }
             )

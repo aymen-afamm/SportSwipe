@@ -15,7 +15,9 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.sportmatch.app.ui.components.ProfileHeader
 import com.sportmatch.app.ui.components.SportTag
 import com.sportmatch.app.ui.viewmodel.ProfileViewModel
+import androidx.compose.ui.Alignment
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ProfileScreen(
     onNavigateBack: () -> Unit,
@@ -58,7 +60,7 @@ fun ProfileScreen(
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(padding),
-                    contentAlignment = androidx.compose.ui.Alignment.Center
+                    contentAlignment = Alignment.Center
                 ) {
                     CircularProgressIndicator()
                 }
@@ -110,7 +112,7 @@ fun ProfileScreen(
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(padding),
-                    contentAlignment = androidx.compose.ui.Alignment.Center
+                    contentAlignment = Alignment.Center
                 ) {
                     Text(
                         text = (uiState as com.sportmatch.app.ui.viewmodel.ProfileUiState.Error).message,

@@ -1,6 +1,5 @@
 package com.sportmatch.app.data.firebase
 
-import androidx.contentpager.content.Query
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
 import com.google.firebase.firestore.Query
@@ -34,7 +33,7 @@ class FirebaseChatDataSource @Inject constructor(
             val snapshot = firestore.collection("matches")
                 .document(matchId)
                 .collection("messages")
-                .orderBy("timestamp", Query.Direction.DESCENDING)
+                .orderBy("timestamp", com.google.firebase.firestore.Query.Direction.DESCENDING)
                 .limit(limit.toLong())
                 .get()
                 .await()
@@ -54,7 +53,7 @@ class FirebaseChatDataSource @Inject constructor(
             listener = firestore.collection("matches")
                 .document(matchId)
                 .collection("messages")
-                .orderBy("timestamp", Query.Direction.ASCENDING)
+                .orderBy("timestamp", com.google.firebase.firestore.Query.Direction.ASCENDING)
                 .addSnapshotListener { snapshot, error ->
                     if (error != null) {
                         close(error)
